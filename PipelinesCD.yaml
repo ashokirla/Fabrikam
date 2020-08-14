@@ -1,11 +1,10 @@
-
 resources:
   builds:
   - build: Spaceworkz
     type: Jenkins
     connection: MyJenkinsServer 
     source: SpaceworkzProj  
-    
+ #testing123   
   - build: WebApp
     type: CircleCI
     connection: MyCircleCIConn
@@ -35,7 +34,6 @@ resources:
     name: WebTier2 
     patterns: '**/*.zip' 
     
-    
 resources:
   jenkins:
   - name: Spaceworkz
@@ -54,8 +52,4 @@ resources:
     patterns: '**/*.zip' 
     
   - downloadCircleCI: WebApp
-  
-    
-    
-    
     

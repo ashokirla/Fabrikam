@@ -12,7 +12,7 @@ resources:
      trigger: 
       branches:
        include:
-         - Dev
+         - develop
 
 pool:
   vmImage: 'ubuntu-latest'

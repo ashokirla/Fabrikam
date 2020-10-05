@@ -8,7 +8,7 @@ trigger: none
 resources:
  pipelines:
    - pipeline: MyUBSCI
-     source: UBSDemo
+     source: TriggersCI
      trigger: 
       branches:
        include:

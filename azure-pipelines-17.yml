@@ -9,10 +9,10 @@ resources:
  pipelines:
    - pipeline: foobar
      source: TestCI
-     trigger:
-      branches:
-       include:
-         - develop1
+     trigger: true
+      # branches:
+      #  include:
+      #    - develop1
 
 pool:
   vmImage: 'ubuntu-latest'

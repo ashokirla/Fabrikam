@@ -8,7 +8,7 @@ trigger: none
 resources:
  pipelines:
    - pipeline: foobar
-     project: mseng
+     project: mseng8900
      source: TestCI
      trigger:
        branches:

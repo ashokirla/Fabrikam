@@ -9,6 +9,10 @@ resources:
  pipelines:
    - pipeline: MyUBSCI
      source: UBSDemo
+     trigger: 
+      branches:
+       include:
+         - Dev
 
 pool:
   vmImage: 'ubuntu-latest'

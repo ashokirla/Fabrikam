@@ -10,10 +10,10 @@ resources:
    - pipeline: foobar
      project: mseng
      source: TestCI
-     trigger: true
-      # branches:
-      #  include:
-      #    - develop1
+     trigger:
+       branches:
+        include:
+          - develop1
 
 pool:
   vmImage: 'ubuntu-latest'

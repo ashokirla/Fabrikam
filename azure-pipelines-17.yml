@@ -11,7 +11,7 @@ resources:
      source: TestCI
      trigger:
       stages:
-        - Build
+        - PostBuildCleanup
 
 pool:
   vmImage: 'ubuntu-latest'

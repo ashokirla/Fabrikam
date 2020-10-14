@@ -9,9 +9,7 @@ resources:
  pipelines:
    - pipeline: foobar
      source: TestCI
-     trigger:
-      stages:
-        - PostBuildCleanup
+     trigger: true
 
 pool:
   vmImage: 'ubuntu-latest'

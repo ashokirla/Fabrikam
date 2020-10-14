@@ -8,12 +8,10 @@ trigger: none
 resources:
  pipelines:
    - pipeline: foobar
-     project: mseng8900
      source: TestCI
      trigger:
-       branches:
-        include:
-          - develop1
+      stages:
+        - Build
 
 pool:
   vmImage: 'ubuntu-latest'

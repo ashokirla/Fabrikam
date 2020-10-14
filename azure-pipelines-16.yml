@@ -1,19 +1,55 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script1'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+    - stage: Build
+      displayName: Build image
+      jobs:
+            - job: Build
+              displayName: Build
+              steps:
+                  - task: PublishBuildArtifacts@1
+                    displayName: 'Publish Artifact: artifact1'
+                    inputs:
+                        PathtoPublish: README.md
+                        ArtifactName: artifact1
+    - stage: PostBuildCleanup
+      displayName: Post Build Cleanup
+      jobs:
+            - job: Cleanup
+              steps:
+                - task: CmdLine@2
+                  inputs:
+                    script: |
+                      echo Write your commands here
+                      echo Hello world
+    - stage: TagBuildWithTested
+      displayName: Tag tested Build
+      jobs:
+            - job: TagBuildWithTested
+              displayName: Tag tested Build
+              steps:
+                  - task: CmdLine@2
+                    continueOnError: true
+                    inputs:
+                     script: |
+                      echo Write your commands here
+                      echo Hello world
+                  - task: PowerShell@2
+                    inputs:
+                        targetType: inline
+                        script: |
+                            Write-Host "##vso[build.addbuildtag]tested"
+    - stage: TagBuildWithProd
+      displayName: Tag Prod build
+      jobs:
+            - job: TagBuildWithProd
+              displayName: Tag Prod build
+              steps:
+                  - task: CmdLine@2
+                    inputs:
+                     script: |
+                      echo Write your commands here
+                      echo Hello world
+                  - task: PowerShell@2
+                    inputs:
+                        targetType: inline
+                        script: |
+                            Write-Host "##vso[build.addbuildtag]prod"

@@ -11,7 +11,7 @@ resources:
     connection: MyCircleCIConn
     source: WebApp.CI
 
-- job: WebDeployment
+- job: WebDeploymenta
   steps:
   - downloadBuild: Spaceworkz  
     name: WebTier1 

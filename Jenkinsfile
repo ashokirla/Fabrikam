@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       parallel {
-        stage('Test 240240240') {
+        stage('Test 24024') {
           steps {
             build 'freestyle123'
           }
